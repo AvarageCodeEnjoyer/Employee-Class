@@ -13,17 +13,12 @@ const email = document.getElementById('email')
 let employeeARR = []
 var i = 0
 
-class EmployeeTemplate{
-  constructor(fname, lname, job, email, address, city, zipCode, state, country){
+class Employee{
+  constructor(fname, lname, job, email){
     this.fname = fname
     this.lname = lname
     this.job = job
     this.email = email
-    this.address = address
-    this.city = city
-    this.zipCode = zipCode
-    this.state = state
-    this.country = country
   }
   addEmployee() {
     let createLI = document.createElement('LI')
@@ -38,19 +33,22 @@ class EmployeeTemplate{
   }  
 }
 
-class Address extends EmployeeTemplate{
-  constructor(address, city, zipCode, state, country){
-    super(address)
-    super(city)
-    super(zipCode)
-    super(state)
-    super(country)
+class AddressTemplate extends Employee{
+  constructor(fname, lname, job, email, address, city, zipCode, state, country){
+    super(fname, lname, job, email)
+    this.address = address
+    this.city = city
+    this.zipCode = zipCode
+    this.state = state
+    this.country = country
   }
   addAddress() {
     let createLI = document.createElement('LI')
-    createLI.innerHTML = `<h1>${this.address}</h1>
-                          
-                          Home School: ${this.homeSchool} <br>
+    createLI.innerHTML = `<h1>${this.address}</h1> <br>
+                          ZipCode: ${this.zipCode}
+                          State: ${this.state}
+                          Country: ${this.country}
+                          City: ${this.city} <br>
                           Email: ${this.email}`
     ulList.appendChild(createLI)
     console.log(employeeARR[i])
@@ -76,12 +74,15 @@ form.addEventListener("submit", e => {
   e.preventDefault()
   let fName = fname.value
   let lName = lname.value
-  // let Program = program.value
-  // let Grade = grade.value
   let Job = job.value
   let Email = email.value
-  employeeARR[i] = new EmployeeTemplate(fName, lName, job, Email)
-  return employeeARR[i].addEmployee()
+  let Address = address.value
+  let City = city.value
+  let ZipCode = zipCode.value
+  let State = state.value
+  let Country = country.value
+  employeeARR[i] = new AddressTemplate(fName, lName, Job, Email, Address, City, ZipCode, State, Country)
+  return employeeARR[i].addAddress()
 })
 
 

@@ -1,21 +1,25 @@
-const employeeBox = document.getElementById('employee')
-const addressBox = document.getElementById('address')
-const form = document.querySelector('form')
-const submit = document.getElementById('submit')
-const fname = document.getElementById('fname')
-const lname = document.getElementById('lname')
-const address = document.getElementById('address')
-const city = document.getElementById('city')
-const zipCode = document.getElementById('zipCode')
-const state = document.getElementById('state')
-const country = document.getElementById('country')
-const job = document.getElementById('job')
-const email = document.getElementById('email')
+const
+employeeBox = document.getElementById('employeeBox'),
+addressBox = document.getElementById('addressBox'),
+form = document.querySelector('form'),
+submit = document.getElementById('submit'),
+fname = document.getElementById('fname'),
+lname = document.getElementById('lname'),
+job = document.getElementById('job'),
+email = document.getElementById('email'),
+age = document.getElementById('age'),
+address = document.getElementById('address'),
+city = document.getElementById('city'),
+zipCode = document.getElementById('zipCode'),
+state = document.getElementById('state'),
+country = document.getElementById('country'),
+printAddress = document.getElementById('printAddress')
+
 let employeeARR = []
 var i = 0
 
 class Employee{
-  constructor(fname, lname, job, age, email){
+  constructor(fname, lname, job, email, age){
     this.fname = fname
     this.lname = lname
     this.job = job
@@ -27,18 +31,17 @@ class Employee{
 
     createLI.innerHTML = 
       `<h1>${this.fname} ${this.lname}</h1> <br>
-      Age: ${this.age} <br>
-      Job: ${this.job} <br>
+      Age: ${this.age} <br> <br>
+      Job: ${this.job} <br> <br>
       Email: ${this.email}`
 
     employeeBox.appendChild(createLI)
-    // reset()
- 
+    reset()
   }  
 }
 
 class AddressTemplate extends Employee{
-  constructor(fname, lname, job, age, email, address, city, zipCode, state, country){
+  constructor(fname, lname, job, email, age, address, city, zipCode, state, country){
     super(fname, lname, job, email, age)
     this.address = address
     this.city = city
@@ -46,21 +49,21 @@ class AddressTemplate extends Employee{
     this.state = state
     this.country = country
   }
-  addAddress() {
-    let createLI = document.createElement('LI')
+  
+  addAddress(){
+    let createLI2 = document.createElement('LI')
 
-    createLI.innerHTML = 
-      `<h1>${this.address}</h1> <br>
+    createLI2.innerHTML = 
+      `<h2>Home Address</h2> <br>
+      Address: ${this.address} <br>
       ZipCode: ${this.zipCode} <br>
-      State: ${this.state} <br> 
-      Country: ${this.country} <br>
       City: ${this.city} <br>
-      Email: ${this.email}`
+      State: ${this.state} <br> 
+      Country: ${this.country} <br>`
 
-    addressBox.appendChild(createLI)
-    console.log(employeeARR[i].addEmployee)
-    employeeARR[i].addEmployee()
-    // reset()
+    addressBox.appendChild(createLI2)
+    this.addEmployee()
+    reset()
   }  
 }
 
@@ -75,6 +78,13 @@ function reset(){
   zipCode.value = ""
   state.value = ""
   country.value = ""
+  printAddress.checked = false
+}
+
+function createHidden(){
+  let create = document.createElement('LI')
+  create.innerHTML = `<br><br><br><h1>ADDRESS HIDDEN</h1>`
+  addressBox.appendChild(create)
 }
 
 form.addEventListener("submit", e => {
@@ -83,13 +93,21 @@ form.addEventListener("submit", e => {
   let lName = lname.value
   let Job = job.value
   let Email = email.value
+  let Age = age.value
   let Address = address.value
   let City = city.value
   let ZipCode = zipCode.value
   let State = state.value
   let Country = country.value
-  employeeARR[i] = new AddressTemplate(fName, lName, Job, Email, Address, City, ZipCode, State, Country)
-  employeeARR[i].addAddress()
+  employeeARR[i] = new AddressTemplate(fName, lName, Job, Email, Age, Address, City, ZipCode, State, Country)
+  if(printAddress.checked){
+    employeeARR[i].addAddress()
+    i++
+    return
+  }
+  employeeARR[i].addEmployee()
+  createHidden()
+  i++
   return
 })
 

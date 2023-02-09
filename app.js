@@ -36,7 +36,7 @@ class Employee{
       Email: ${this.email}`
 
     employeeBox.appendChild(createLI)
-    // reset()
+    reset()
   }  
 }
 
@@ -65,7 +65,7 @@ class AddressTemplate extends Employee{
 
     addressBox.appendChild(createLI2)
     this.addEmployee()
-    // reset()
+    reset()
   }  
 }
 

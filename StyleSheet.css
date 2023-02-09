@@ -9,7 +9,9 @@
 body{
   font-family: 'Ubuntu', sans-serif;
   margin: 0px;
-  overflow: hidden;
+  /* min-height: 100vh; */
+  height: fit-content;
+  background-color: #668b9b;
 }
 
 .textHead{
@@ -17,19 +19,17 @@ body{
 }
 
 .container{
-  background-color: #668b9b;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .inner-container{
-  min-height: 300px;
-  width: 300px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   border-radius: 10px;
 }
 
@@ -44,36 +44,47 @@ body{
   margin: 30px;
 }
 
+#employeeBox > li{
+  text-align: start;
+}
+
 ul{
   padding: 0px;
   border-radius: 10px;
   display: flex;
-}
-
-#ulList > li{
-  text-align: center;
+  flex-direction: column;
+  width: 400px;
+  row-gap: 50px;
+  font-size: 1rem;
 }
 
 li{
   padding: 10px 30px;
-  background-color: rgb(105, 163, 130);
-  box-sizing: border-box;
+  background-color: var(--light-slate);
   list-style: none;
   border-radius: 10px;
   margin-right: 20px;
+  height: 200px;
+  text-align: center;
+  border: 5px solid black
 }
 
 form{
+  background-color: var(--light-slate);
   width: 650px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
   padding: 15px;
-  border: 2px solid black;
+  border: 5px solid black;
   border-radius: 10px;
   font-size: 20px;
   justify-content: center;
+}
+
+.col{
+  width: 300px
 }
 
 .formGroup{
@@ -95,8 +106,4 @@ input{
 
 #submit:hover{
   background-color: #a7bfca;
-}
-
-.col{
-  width: 300px
 }

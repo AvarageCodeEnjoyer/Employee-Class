@@ -16,7 +16,7 @@ country = document.getElementById('country'),
 printAddress = document.getElementById('printAddress')
 
 let employeeARR = []
-var i = 0
+let i = 0
 
 class Employee{
   constructor(fname, lname, job, email, age){
@@ -36,9 +36,11 @@ class Employee{
       Email: ${this.email}`
 
     employeeBox.appendChild(createLI)
-    reset()
+    // reset()
   }  
 }
+
+/* -- Add the address to the Employee class to display address if chosen to - */
 
 class AddressTemplate extends Employee{
   constructor(fname, lname, job, email, age, address, city, zipCode, state, country){
@@ -63,9 +65,11 @@ class AddressTemplate extends Employee{
 
     addressBox.appendChild(createLI2)
     this.addEmployee()
-    reset()
+    // reset()
   }  
 }
+
+/* ------------------------------- Reset form ------------------------------- */
 
 function reset(){
   fname.value = ""
@@ -81,6 +85,8 @@ function reset(){
   printAddress.checked = false
 }
 
+/* ----- Make addressBox say "ADDRESS HIDDEN" if checkbox is not clicked ---- */
+
 function createHidden(){
   let create = document.createElement('LI')
   create.innerHTML = `<br><br><br><h1>ADDRESS HIDDEN</h1>`
@@ -89,16 +95,18 @@ function createHidden(){
 
 form.addEventListener("submit", e => {
   e.preventDefault()
-  let fName = fname.value
-  let lName = lname.value
-  let Job = job.value
-  let Email = email.value
-  let Age = age.value
-  let Address = address.value
-  let City = city.value
-  let ZipCode = zipCode.value
-  let State = state.value
-  let Country = country.value
+  let 
+    fName = fname.value,
+    lName = lname.value,
+    Job = job.value,
+    Email = email.value,
+    Age = age.value,
+    Address = address.value,
+    City = city.value,
+    ZipCode = zipCode.value,
+    State = state.value,
+    Country = country.value
+
   employeeARR[i] = new AddressTemplate(fName, lName, Job, Email, Age, Address, City, ZipCode, State, Country)
   if(printAddress.checked){
     employeeARR[i].addAddress()
@@ -110,6 +118,13 @@ form.addEventListener("submit", e => {
   i++
   return
 })
+
+
+/* function login(){
+  for(i = 0; i < employeeARR.length; i++){
+
+  }
+} */
 
 
 

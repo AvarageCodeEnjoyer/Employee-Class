@@ -1,4 +1,5 @@
-const ulList = document.getElementById('ulList')
+const employeeBox = document.getElementById('employee')
+const addressBox = document.getElementById('address')
 const form = document.querySelector('form')
 const submit = document.getElementById('submit')
 const fname = document.getElementById('fname')
@@ -14,28 +15,31 @@ let employeeARR = []
 var i = 0
 
 class Employee{
-  constructor(fname, lname, job, email){
+  constructor(fname, lname, job, age, email){
     this.fname = fname
     this.lname = lname
     this.job = job
+    this.age = age
     this.email = email
   }
   addEmployee() {
     let createLI = document.createElement('LI')
-    createLI.innerHTML = `<h1>${this.fname} ${this.lname}</h1>
-                          Job: ${this.job} <br>
-                          Email: ${this.email}`
-    ulList.appendChild(createLI)
-    console.log(employeeARR[i])
-    i++
+
+    createLI.innerHTML = 
+      `<h1>${this.fname} ${this.lname}</h1> <br>
+      Age: ${this.age} <br>
+      Job: ${this.job} <br>
+      Email: ${this.email}`
+
+    employeeBox.appendChild(createLI)
     // reset()
-    return
+ 
   }  
 }
 
 class AddressTemplate extends Employee{
-  constructor(fname, lname, job, email, address, city, zipCode, state, country){
-    super(fname, lname, job, email)
+  constructor(fname, lname, job, age, email, address, city, zipCode, state, country){
+    super(fname, lname, job, email, age)
     this.address = address
     this.city = city
     this.zipCode = zipCode
@@ -44,31 +48,34 @@ class AddressTemplate extends Employee{
   }
   addAddress() {
     let createLI = document.createElement('LI')
-    createLI.innerHTML = `<h1>${this.address}</h1> <br>
-                          ZipCode: ${this.zipCode}
-                          State: ${this.state}
-                          Country: ${this.country}
-                          City: ${this.city} <br>
-                          Email: ${this.email}`
-    ulList.appendChild(createLI)
-    console.log(employeeARR[i])
-    i++
+
+    createLI.innerHTML = 
+      `<h1>${this.address}</h1> <br>
+      ZipCode: ${this.zipCode} <br>
+      State: ${this.state} <br> 
+      Country: ${this.country} <br>
+      City: ${this.city} <br>
+      Email: ${this.email}`
+
+    addressBox.appendChild(createLI)
+    console.log(employeeARR[i].addEmployee)
+    employeeARR[i].addEmployee()
     // reset()
-    return
   }  
 }
-
 
 function reset(){
   fname.value = ""
   lname.value = ""
-  grade.value = ""
-  program.value = ""
-  homeSchool.value = ""
+  job.value = ""
+  age.value = ""
   email.value = ""
+  address.value = ""
+  city.value = ""
+  zipCode.value = ""
+  state.value = ""
+  country.value = ""
 }
-
-
 
 form.addEventListener("submit", e => {
   e.preventDefault()
@@ -82,7 +89,8 @@ form.addEventListener("submit", e => {
   let State = state.value
   let Country = country.value
   employeeARR[i] = new AddressTemplate(fName, lName, Job, Email, Address, City, ZipCode, State, Country)
-  return employeeARR[i].addAddress()
+  employeeARR[i].addAddress()
+  return
 })
 
 

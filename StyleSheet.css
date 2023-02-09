@@ -1,6 +1,15 @@
+:root{
+  --dark-slate: #467284;
+  --less-dark-slate: #668b9b;
+  --med-slate: #86a5b2;
+  --light-slate: #a7bfca;
+  --lightest-slate: #c9dae2;
+}
+
 body{
   font-family: 'Ubuntu', sans-serif;
   margin: 0px;
+  overflow: hidden;
 }
 
 .textHead{
@@ -8,11 +17,10 @@ body{
 }
 
 .container{
-  background-color: rgb(134, 179, 190);
+  background-color: #668b9b;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -21,7 +29,6 @@ body{
   width: 300px;
   display: flex;
   flex-direction: column;
-  /* justify-content: ; */
   align-items: center;
   border-radius: 10px;
 }
@@ -43,6 +50,10 @@ ul{
   display: flex;
 }
 
+#ulList > li{
+  text-align: center;
+}
+
 li{
   padding: 10px 30px;
   background-color: rgb(105, 163, 130);
@@ -53,17 +64,39 @@ li{
 }
 
 form{
-  width: 230px;
+  width: 650px;
   display: flex;
-  flex-direction: column;
-  row-gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
   padding: 15px;
   border: 2px solid black;
   border-radius: 10px;
   font-size: 20px;
+  justify-content: center;
 }
 
 .formGroup{
   display: flex;
   justify-content: space-between;
+  margin: 5px;
+}
+
+input{
+  margin-left: 7px;
+}
+
+#submit{
+  background-color: #86a5b2;
+  border: 2px solid black;
+  transition: 0.1s;
+  border-radius: 5px;
+}
+
+#submit:hover{
+  background-color: #a7bfca;
+}
+
+.col{
+  width: 300px
 }

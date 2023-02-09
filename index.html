@@ -13,55 +13,59 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="textHead">Employee</h1>
+    <h1 class="textHead">Employee Login</h1>
     <form action="">
-      <div class="formGroup">
-        <label for="fname">First Name:</label>
-        <input type="text" id="fname" required>
+      <div class="col">
+        <div class="formGroup">
+          <label for="fname">First Name:</label>
+          <input type="text" id="fname" required>
+        </div>
+        <div class="formGroup">
+          <label for="lname">Last Name:</label>
+          <input type="text" id="lname" required>
+        </div>
+        <div class="formGroup">
+          <label for="job">Job:</label>
+          <input type="text" id="job" required>
+        </div>
+        <div class="formGroup">
+          <label for="age">Age:</label>
+          <input type="number" id="age" required>
+        </div>
+        <div class="formGroup">
+          <label for="email">email:</label>
+          <input type="email" id="email" pattern="^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$" required>
+        </div>
       </div>
-      <div class="formGroup">
-        <label for="lname">Last Name:</label>
-        <input type="text" id="lname" required>
+      <div class="col">  
+        <div class="formGroup">
+          <label for="address">address:</label>
+          <input type="text" id="address" required>
+        </div>
+        <div class="formGroup">
+          <label for="city">City:</label>
+          <input type="text" id="city" required>
+        </div>
+        <div class="formGroup">
+          <label for="zipCode">ZipCode:</label>
+          <input type="text" id="zipCode" required>
+        </div>
+        <div class="formGroup">
+          <label for="state">State:</label>
+          <input type="text" id="state" required>
+        </div>
+        <div class="formGroup">
+          <label for="country">Country:</label>
+          <input type="text" id="country" required>
+        </div>
       </div>
-      <div class="formGroup">
-        <label for="job">Job:</label>
-        <input type="text" id="job" required>
-      </div>
-      <div class="formGroup">
-        <label for="age">Age:</label>
-        <input type="number" id="age" required>
-      </div>
-      <div class="formGroup">
-        <label for="email">email:</label>
-        <input type="email" id="email" pattern="^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$" required>
-      </div>
-      <div class="formGroup">
-        <label for="address">address:</label>
-        <input type="text" id="address" required>
-      </div>
-      <div class="formGroup">
-        <label for="city">City:</label>
-        <input type="text" id="city" required>
-      </div>
-      <div class="formGroup">
-        <label for="zipCode">ZipCode:</label>
-        <input type="text" id="zipCode" required>
-      </div>
-      <div class="formGroup">
-        <label for="state">State:</label>
-        <input type="text" id="state" required>
-      </div>
-      <div class="formGroup">
-        <label for="country">Country:</label>
-        <input type="text" id="country" required>
-      </div>
-     
       <input type="submit" id="submit">
     </form>
     <div class="inner-container">
       <div class="list">
-        <ul id="ulList"></ul>
+        <ul id="employee" class="ulList"></ul>
       </div>
+      <ul id="address" class="ulList"></ul>
     </div>
   </div>
 </body>

@@ -1,0 +1,7 @@
+slates{
+  #467284
+  #668b9b
+  #86a5b2
+  #a7bfca
+  #c9dae2
+}
